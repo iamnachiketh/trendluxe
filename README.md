@@ -76,7 +76,7 @@ npm start
 
 ### ***📂 Project Structure***
 
-
+```bash
 trendluxe/
 ├── client/          # Frontend React app
 │   ├── public/      # Static assets
@@ -88,3 +88,14 @@ trendluxe/
 │   └── app.js       # Express server setup
 ├── README.md        # Project documentation
 └── package.json     # Dependencies and scripts
+```
+
+### **🤝 Contributing**
+
+We welcome contributions! Here’s how you can help:
+
+- Fork the repository.
+- Create a new branch for your feature (git checkout -b feature-name).
+- Commit your changes (git commit -m 'Add some feature').
+- Push the branch (git push origin feature-name).
+- Open a Pull Request.
