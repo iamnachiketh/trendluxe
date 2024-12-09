@@ -19,7 +19,7 @@ app.use(express.json());
 app.use("/api/auth",authRouter);
 app.use("/api/user",userRouter);
 app.use("/api/products",productsRouter);
-app.use("/api/cart",cartRouter);
+app.use("/api/carts",cartRouter);
 app.use("/api/orders",orderRouter);
 
 
