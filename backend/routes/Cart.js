@@ -79,6 +79,22 @@ router.get("/find-all-cart", verifyTokenAndAutherization, async (req, res)=>{
     }catch(error){
         res.status(200).json(error.message);
     }
+});
+
+router.get("/total-item-quantity",verifyToken,async(req,res)=>{
+    try{
+
+        let cart = await Cart.findById({_id:"6756d03a076f83d5cf969389"});
+        let totalQuantity = cart.products.reduce((acc,curr)=>{
+            acc += curr.quantity; 
+            return acc;
+        },0);
+        
+        res.status(200).json({totalQuantity});
+
+    }catch(error){
+        res.status(500).json(error.message);
+    }
 })
 
 module.exports = router;
