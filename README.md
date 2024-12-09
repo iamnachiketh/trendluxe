@@ -70,3 +70,18 @@ npm run dev
 cd backend
 npm start
 ```
+
+### ***📂 Project Structure***
+
+
+trendluxe/
+├── client/          # Frontend React app
+│   ├── public/      # Static assets
+│   ├── src/         # React components and styles
+│   └── vite.config.js # Vite configuration
+├── server/          # Backend Node.js app
+│   ├── routes/      # API routes
+│   ├── models/      # Database models
+│   └── app.js       # Express server setup
+├── README.md        # Project documentation
+└── package.json     # Dependencies and scripts
