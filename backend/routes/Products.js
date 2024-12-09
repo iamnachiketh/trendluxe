@@ -95,6 +95,22 @@ router.get("/find-all-product", async (req, res) => {
     }
 });
 
+//GET PRODUCT BY INSTOCK
+router.get("/products-instock",async(req,res)=>{
+
+    try{
+
+        let allProducts =  await Product.find();
+        console.log(allProducts);
+        allProducts = allProducts.filter((product)=>product.inStock);
+        res.status(200).json(allProducts);
+
+    }catch(error){
+        res.status(500).json(error.message);
+    }
+
+})
+
 
 
 module.exports = router;
