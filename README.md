@@ -39,3 +39,33 @@ TrendLuxe is a sleek and responsive fashion website built with the latest web te
 ```bash
 git clone https://github.com/yourusername/trendluxe.git
 cd trendluxe
+
+## **2. Install Dependencies**
+
+**Frontend**
+
+```bash
+cd frontend
+npm install
+
+
+** Backend **
+
+```bash
+cd backend
+npm install
+
+## **3. Run the Deve Server**
+
+**Frontend**
+
+```bash
+cd frontend
+npm run dev
+
+
+** Backend **
+
+```bash
+cd backend
+npm start
