@@ -37,7 +37,7 @@ TrendLuxe is a sleek and responsive fashion website built with the latest web te
 
 ### **1. Clone the Repository**  
 ```bash
-git clone https://github.com/yourusername/trendluxe.git
+git clone https://github.com/iamnachiketh/trendluxe.git
 cd trendluxe
 ```
 ### **2. Install Dependencies**
@@ -99,3 +99,9 @@ We welcome contributions! Here’s how you can help:
 - Commit your changes (git commit -m 'Add some feature').
 - Push the branch (git push origin feature-name).
 - Open a Pull Request.
+
+### 📧 Contact Us
+Have a suggestion or a bug report? Reach out to me:
+
+Email: nachikethakc192003@gmail.com
+GitHub Issues: (Open an issue)[https://github.com/iamnachiketh/trendluxe/issues]
