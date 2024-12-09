@@ -104,4 +104,4 @@ We welcome contributions! Here’s how you can help:
 Have a suggestion or a bug report? Reach out to me:
 
 - Email: nachikethakc192003@gmail.com
-- GitHub Issues: [Open an issue] (https://github.com/iamnachiketh/trendluxe/issues)
+- GitHub Issues: [Open an issue] (https://github.com/iamnachiketh/trendluxe/issues)!
