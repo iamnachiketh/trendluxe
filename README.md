@@ -70,6 +70,9 @@ npm run dev
 cd backend
 npm start
 ```
+### **4. Open the Application**
+- Go to ```bash http://localhost:5173``` in your browser to view TrendLuxe.
+
 
 ### ***📂 Project Structure***
 
