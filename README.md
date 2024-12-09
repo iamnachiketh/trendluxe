@@ -78,14 +78,14 @@ npm start
 
 ```bash
 trendluxe/
-├── client/          # Frontend React app
+├── frontend/          # Frontend React app
 │   ├── public/      # Static assets
 │   ├── src/         # React components and styles
 │   └── vite.config.js # Vite configuration
-├── server/          # Backend Node.js app
+├── backend/          # Backend Node.js app
 │   ├── routes/      # API routes
-│   ├── models/      # Database models
-│   └── app.js       # Express server setup
+│   ├── models/      # No SQL models
+│   └── index.js       # Express server setup
 ├── README.md        # Project documentation
 └── package.json     # Dependencies and scripts
 ```
