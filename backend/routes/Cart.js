@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Cart = require('../model/Cart');
+const Product = require('../model/Product');
 const {
     verifyTokenAndAdmin,
     verifyTokenAndAutherization,
@@ -8,20 +9,36 @@ const {
 
 //CREATE
 router.post("/add-cart", verifyToken, async (req, res) => {
-
     try {
-        const newCart = new Cart(req.body);
-        const savedCart = await newCart.save();
+        let allProducts = req.body.products;
+        let invalidQuantity = [];
 
-        res.status(201).json(savedCart);
+        await Promise.all(
+            allProducts.map(async (value) => {
+                const product = await Product.findById(value.productId);
+                if (value.quantity > product.quantity) {
+                    invalidQuantity.push({
+                        title: product.title,
+                        quantityMax: product.quantity,
+                    });
+                }
+            })
+        );
 
+        if (invalidQuantity.length === 0) {
+            const newCart = new Cart(req.body);
+            const savedCart = await newCart.save();
+            return res.status(201).json(savedCart);
+        } else {
+            return res.status(406).json({
+                message: "Some products have invalid quantities.",
+                invalidProducts: invalidQuantity,
+            });
+        }
     } catch (error) {
-
         res.status(500).json(error.message);
-
     }
 });
-
 
 
 //UPDATE
@@ -72,27 +89,27 @@ router.get("/find-cart/:userid", verifyTokenAndAutherization, async (req, res) =
 });
 
 //GET ALL CART
-router.get("/find-all-cart", verifyTokenAndAutherization, async (req, res)=>{
-    try{
-        const allCart = await Cart.find().sort({userId:-1});
+router.get("/find-all-cart", verifyTokenAndAutherization, async (req, res) => {
+    try {
+        const allCart = await Cart.find().sort({ userId: -1 });
         res.status(200).json(allCart);
-    }catch(error){
+    } catch (error) {
         res.status(200).json(error.message);
     }
 });
 
-router.get("/total-item-quantity",verifyToken,async(req,res)=>{
-    try{
+router.get("/total-item-quantity", verifyToken, async (req, res) => {
+    try {
 
-        let cart = await Cart.findById({_id:"6756d03a076f83d5cf969389"});
-        let totalQuantity = cart.products.reduce((acc,curr)=>{
-            acc += curr.quantity; 
+        let cart = await Cart.findById({ _id: "6756d03a076f83d5cf969389" });
+        let totalQuantity = cart.products.reduce((acc, curr) => {
+            acc += curr.quantity;
             return acc;
-        },0);
-        
-        res.status(200).json({totalQuantity});
+        }, 0);
 
-    }catch(error){
+        res.status(200).json({ totalQuantity });
+
+    } catch (error) {
         res.status(500).json(error.message);
     }
 })
